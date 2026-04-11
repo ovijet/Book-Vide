@@ -6,6 +6,7 @@ import Root from "./Component/Root";
 import Books from "./Books";
 import PageOfRead from "./Component/PageOfRead";
 import Home from "./Home";
+import BookDetails from "./Component/BookDetails/BookDetails";
 
 let router = createBrowserRouter([
   {
@@ -24,14 +25,18 @@ let router = createBrowserRouter([
         path: "/pageOfRead",
         element: <PageOfRead />,
       },
+      {
+        path: "/bookDetails/:id",
+        loader: () => fetch("/booksData.json"),
+        Component: BookDetails,
+      },
     ],
-    errorElement:<h1>page is not found</h1>
+    errorElement: <h1>page is not found</h1>,
   },
-  
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+  </StrictMode>,
 );
