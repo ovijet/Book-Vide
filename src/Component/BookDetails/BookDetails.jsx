@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData, useParams } from "react-router";
+import { Context } from "../../BookContext/BookContext";
 
 const BookDetails = () => {
   let { id } = useParams();
-  console.log(id, "ovi");
+  // console.log(id, "ovi");
   let books = useLoaderData();
 
-  console.log(books);
+  // console.log(books);
   let find = books.find((books) => books.bookId == id);
-  console.log(find);
+  // console.log(find);
   let {
+    // bookId,
     bookName,
     author,
     image,
@@ -21,6 +23,8 @@ const BookDetails = () => {
     totalPages,
     category,
   } = find;
+
+  let { handleMark, handleWisList } = useContext(Context);
 
   return (
     <div className="card card-side bg-base-100 shadow-sm container mx-auto mt-10">
@@ -47,9 +51,16 @@ const BookDetails = () => {
           <p>Rating:{rating}</p>
         </div>
 
-        <div className="card-actions justify-end">
-          <button className="btn">Read</button>
-          <button className="btn btn-primary">Wishlist</button>
+        <div className="card-actions">
+          <button className="btn" onClick={() => handleMark(find)}>
+            Mark As Read
+          </button>
+          <button
+            className="btn btn-primary"
+            onClick={() => handleWisList(find)}
+          >
+            Add To Wishlist
+          </button>
         </div>
       </div>
     </div>

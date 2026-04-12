@@ -7,6 +7,8 @@ import Books from "./Books";
 import PageOfRead from "./Component/PageOfRead";
 import Home from "./Home";
 import BookDetails from "./Component/BookDetails/BookDetails";
+import BookProvider from "./BookContext/BookContext";
+import { ToastContainer } from "react-toastify";
 
 let router = createBrowserRouter([
   {
@@ -37,6 +39,9 @@ let router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <BookProvider>
+      <RouterProvider router={router} />
+    </BookProvider>
+    <ToastContainer />
   </StrictMode>,
 );

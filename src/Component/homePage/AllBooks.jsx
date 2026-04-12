@@ -10,8 +10,8 @@ const AllBooks = () => {
     <div>
       <h2 className="text-center text-2xl underline">All Books</h2>
       <div className="container mx-auto  grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-5 space-y-2">
-        {data.map((books) => (
-          <AllBooksDetails key={books.id} books={books}></AllBooksDetails>
+        {data.map((books,id) => (
+          <AllBooksDetails key={id} books={books}></AllBooksDetails>
         ))}
       </div>
     </div>
