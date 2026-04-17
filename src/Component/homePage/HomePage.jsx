@@ -10,7 +10,7 @@ const HomePage = () => {
         <img src={img} className="w-[500px]" />
         <div>
           <p className="py-6 text-3xl font-semibold">
-            Books to freshen up <br /> your bookshelf
+            Books to freshen up <br /> your bookshelf  cudddiiii
           </p>
           <button className="btn btn-success">View The list</button>
         </div>
